@@ -4,7 +4,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace GTI_WebApi {
     public class GTI_Context :DbContext{
-        public GTI_Context(string Connection_Name) : base(Connection_Name == null ? "gtiConnection" : Connection_Name) { }
+        public GTI_Context(string Connection_Name) : base(Connection_Name ?? "gtiConnection") { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             Database.SetInitializer<GTI_Context>(null);
@@ -18,7 +18,7 @@ namespace GTI_WebApi {
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<cadimob> Cadimob { get; set; }
+        public DbSet<Cadimob> Cadimob { get; set; }
 
 
     }

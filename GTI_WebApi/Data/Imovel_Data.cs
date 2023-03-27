@@ -13,7 +13,7 @@ namespace GTI_WebApi.Data {
             _connection = sConnection;
         }
 
-        public cadimob Retorna_Imovel(int codigo) {
+        public Cadimob Retorna_Imovel(int codigo) {
             using (GTI_Context db = new GTI_Context(_connection)) {
                 return (from p in db.Cadimob where p.Codreduzido == codigo select p).FirstOrDefault();
             }

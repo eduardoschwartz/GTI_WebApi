@@ -5,13 +5,16 @@ using System.Web.Http;
 
 namespace GTI_WebApi.Controllers {
 
+    ///<Summary>
+    /// Controlador Imovel
+    ///</Summary>
+    [RoutePrefix("imovel")]
     public class ImovelController : ApiController    {
-
-
+        
         /// <summary>
         /// Retorna dados de um imóvel por código.
         /// </summary>
-        [Route("GetImovelId")]
+        [Route("GetImovelId/{id:int}")]
         public HttpResponseMessage GetImovelId(int id) {
             string _connection = "GTIconnection";
             Imovel_Data _imovel = new Imovel_Data(_connection);

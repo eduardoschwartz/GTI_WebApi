@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace GTI_WebApi.Models {
-    public class cadimob {
+    public class Cadimob {
         [Key]
         public int Codreduzido { get; set; }
         public short Dv { get; set; }

@@ -84,7 +84,7 @@ namespace GTI_WebApi.Areas.HelpPage.ModelDescriptions
             { typeof(Boolean), "boolean" },
         };
 
-        private Lazy<IModelDocumentationProvider> _documentationProvider;
+        private readonly Lazy<IModelDocumentationProvider> _documentationProvider;
 
         public ModelDescriptionGenerator(HttpConfiguration config)
         {
@@ -120,9 +120,8 @@ namespace GTI_WebApi.Areas.HelpPage.ModelDescriptions
                 modelType = underlyingType;
             }
 
-            ModelDescription modelDescription;
             string modelName = ModelNameHelper.GetModelName(modelType);
-            if (GeneratedModels.TryGetValue(modelName, out modelDescription))
+            if (GeneratedModels.TryGetValue(modelName, out ModelDescription modelDescription))
             {
                 if (modelType != modelDescription.ModelType)
                 {
@@ -251,9 +250,7 @@ namespace GTI_WebApi.Areas.HelpPage.ModelDescriptions
 
         private string CreateDefaultDocumentation(Type type)
         {
-            string documentation;
-            if (DefaultTypeDocumentation.TryGetValue(type, out documentation))
-            {
+            if (DefaultTypeDocumentation.TryGetValue(type, out String documentation)) {
                 return documentation;
             }
             if (DocumentationProvider != null)
@@ -271,12 +268,9 @@ namespace GTI_WebApi.Areas.HelpPage.ModelDescriptions
             IEnumerable<Attribute> attributes = property.GetCustomAttributes();
             foreach (Attribute attribute in attributes)
             {
-                Func<object, string> textGenerator;
-                if (AnnotationTextGenerator.TryGetValue(attribute.GetType(), out textGenerator))
-                {
+                if (AnnotationTextGenerator.TryGetValue(attribute.GetType(), out Func<Object, String> textGenerator)) {
                     annotations.Add(
-                        new ParameterAnnotation
-                        {
+                        new ParameterAnnotation {
                             AnnotationAttribute = attribute,
                             Documentation = textGenerator(attribute)
                         });
