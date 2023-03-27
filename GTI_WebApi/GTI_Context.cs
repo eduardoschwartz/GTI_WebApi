@@ -18,7 +18,29 @@ namespace GTI_WebApi {
             base.OnModelCreating(modelBuilder);
         }
 
+        public DbSet<areas> Areas { get; set; }
+        public DbSet<Bairro> Bairro { get; set; }
+        public DbSet<Benfeitoria> Benfeitoria { get; set; }
         public DbSet<Cadimob> Cadimob { get; set; }
+        public DbSet<Categconstr> Categconstr { get; set; }
+        public DbSet<Categprop> Categprop { get; set; }
+        public DbSet<Cep> Cep { get; set; }
+        public DbSet<Cidadao> Cidadao { get; set; }
+        public DbSet<Cidade> Cidade { get; set; }
+        public DbSet<Condominio> Condominio { get; set; }
+        public DbSet<Endentrega> Endentrega { get; set; }
+        public DbSet<Facequadra> Facequadra { get; set; }
+        public DbSet<Logradouro> Logradouro { get; set; }
+        public DbSet<Pais> Pais { get; set; }
+        public DbSet<Pedologia> Pedologia { get; set; }
+        public DbSet<Proprietario> Proprietario { get; set; }
+        public DbSet<Situacao> Situacao { get; set; }
+        public DbSet<Testada> Testada { get; set; }
+        public DbSet<Tipoconstr> Tipoconstr { get; set; }
+        public DbSet<Topografia> Topografia { get; set; }
+        public DbSet<Usoconstr> Usoconstr { get; set; }
+        public DbSet<Usoterreno> Usoterreno { get; set; }
+        
 
 
     }

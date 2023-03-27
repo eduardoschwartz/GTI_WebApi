@@ -533,14 +533,19 @@
             Página inicial do swagger
             </summary>
         </member>
-        <member name="T:GTI_WebApi.Controllers.ImovelController">
-            <Summary>
-             Controlador Imovel
-            </Summary>
-        </member>
         <member name="M:GTI_WebApi.Controllers.ImovelController.GetImovelId(System.Int32)">
             <summary>
-            Retorna dados de um imóvel por código.
+            Retorna detalhes de um imóvel por código.
+            </summary>
+        </member>
+        <member name="T:GTI_WebApi.Models.modelCore">
+            <summary>
+            Classe que contêm os tipos utilizados no sistema
+            </summary>
+        </member>
+        <member name="M:GTI_WebApi.Functions.TrimEx(System.String)">
+            <summary>
+            Remove multiplos espaços no meio da palavra
             </summary>
         </member>
     </members>
