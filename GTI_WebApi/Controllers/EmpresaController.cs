@@ -92,7 +92,10 @@ namespace GTI_WebApi.Controllers {
                 empresa.Subunidade,
                 empresa.UF,
                 empresa.Lista_Socio,
-                empresa.Lista_Placa
+                empresa.Lista_Placa,
+                empresa.Lista_AtividadeISS,
+                empresa.Lista_Cnae_Empresa,
+                empresa.Lista_Cnae_VS
 
             }); 
 

@@ -181,6 +181,9 @@ namespace GTI_WebApi.Models {
         public List<MobiliarioproprietarioStruct> Lista_Socio { get; set; }
         public bool? Imune_issqn { get; set; }
         public List<string> Lista_Placa{ get; set; }
+        public List<MobiliarioAtividadeISSStruct> Lista_AtividadeISS { get; set; }
+        public List<CnaeStruct> Lista_Cnae_Empresa { get; set; }
+        public List<CnaeStruct> Lista_Cnae_VS { get; set; }
     }
 
     public class SilStructure {

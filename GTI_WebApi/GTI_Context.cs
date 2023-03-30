@@ -20,6 +20,7 @@ namespace GTI_WebApi {
 
         public DbSet<areas> Areas { get; set; }
         public DbSet<Atividade> Atividade { get; set; }
+        public DbSet<Atividadeiss> AtividadeIss { get; set; }
         public DbSet<Bairro> Bairro { get; set; }
         public DbSet<Benfeitoria> Benfeitoria { get; set; }
         public DbSet<Cadimob> Cadimob { get; set; }
@@ -28,12 +29,18 @@ namespace GTI_WebApi {
         public DbSet<Cep> Cep { get; set; }
         public DbSet<Cidadao> Cidadao { get; set; }
         public DbSet<Cidade> Cidade { get; set; }
+        public DbSet<Cnae> Cnae { get; set; }
+        public DbSet<Cnae_Aliquota> Cnae_Aliquota { get; set; }
+        public DbSet<Cnaesubclasse> Cnaesubclass { get; set; }
         public DbSet<Condominio> Condominio { get; set; }
         public DbSet<Endentrega> Endentrega { get; set; }
         public DbSet<Facequadra> Facequadra { get; set; }
         public DbSet<Horario_funcionamento> horario_Funcionamento { get; set; }
         public DbSet<Logradouro> Logradouro { get; set; }
         public DbSet<Mobiliario> Mobiliario { get; set; }
+        public DbSet<Mobiliarioatividadeiss> Mobiliarioatividadeiss { get; set; }
+        public DbSet<Mobiliariocnae> Mobiliariocnae { get; set; }
+        public DbSet<Mobiliariovs> Mobiliariovs { get; set; }
         public DbSet<Mobiliarioevento> Mobiliarioevento { get; set; }
         public DbSet<mobiliarioplaca> Mobiliarioplaca { get; set; }
         public DbSet<Mobiliarioproprietario> mobiliarioproprietario { get; set; }
@@ -42,6 +49,7 @@ namespace GTI_WebApi {
         public DbSet<Periodomei> Periodomei { get; set; }
         public DbSet<Proprietario> Proprietario { get; set; }
         public DbSet<Situacao> Situacao { get; set; }
+        public DbSet<Tabelaiss> Tabelaiss { get; set; }
         public DbSet<Testada> Testada { get; set; }
         public DbSet<Tipoconstr> Tipoconstr { get; set; }
         public DbSet<Topografia> Topografia { get; set; }

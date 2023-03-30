@@ -153,6 +153,9 @@ namespace GTI_WebApi.Repository {
                 row.Mei = Empresa_Mei(Codigo) ? (byte)1 : (byte)0;
                 row.Lista_Socio = Lista_Empresa_Proprietario(Codigo);
                 row.Lista_Placa = Lista_Placas(Codigo);
+                row.Lista_AtividadeISS=Lista_AtividadeISS_Empresa(Codigo);
+                row.Lista_Cnae_Empresa = Lista_Cnae_Empresa(Codigo);
+                row.Lista_Cnae_VS=Lista_Cnae_Empresa_VS(Codigo);
                 return row;
             }
         }
@@ -192,6 +195,68 @@ namespace GTI_WebApi.Repository {
             return bRet;
         }
 
+        public List<MobiliarioAtividadeISSStruct> Lista_AtividadeISS_Empresa(int nCodigo) {
+            List<MobiliarioAtividadeISSStruct> Lista = new List<MobiliarioAtividadeISSStruct>();
+            using (GTI_Context db = new GTI_Context(_connection)) {
+                var rows = (from m in db.Mobiliarioatividadeiss join a in db.AtividadeIss on m.Codatividade equals a.Codatividade join t in db.Tabelaiss on m.Codatividade equals t.Codigoativ
+                            where m.Codmobiliario == nCodigo
+                            select new MobiliarioAtividadeISSStruct {
+                                Codigo_empresa = m.Codmobiliario, Codigo_atividade = m.Codatividade, Codigo_tributo = m.Codtributo,
+                                Descricao = a.Descatividade, Item = a.Item, Quantidade = m.Qtdeiss, Valor = t.Aliquota
+                            });
+                foreach (var reg in rows) {
+                    MobiliarioAtividadeISSStruct Linha = new MobiliarioAtividadeISSStruct {
+                        Codigo_empresa = reg.Codigo_empresa,
+                        Codigo_atividade = reg.Codigo_atividade,
+                        Codigo_tributo = reg.Codigo_tributo,
+                        Descricao = reg.Descricao,
+                        Quantidade = reg.Quantidade,
+                        Valor = reg.Valor,
+                        Item = reg.Item
+                    };
+                    Lista.Add(Linha);
+                }
+                return Lista;
+            }
+        }
+
+        public List<CnaeStruct> Lista_Cnae_Empresa(int nCodigo) {
+            List<CnaeStruct> Lista = new List<CnaeStruct>();
+            using (GTI_Context db = new GTI_Context(_connection)) {
+                var rows = (from m in db.Mobiliariocnae where m.Codmobiliario == nCodigo
+                            select new { m.Cnae, m.Principal });
+                foreach (var reg in rows) {
+                    CnaeStruct Linha = new CnaeStruct {
+                        CNAE = reg.Cnae,
+                        Descricao = Retorna_Descricao_Cnae(reg.Cnae),
+                        Principal = reg.Principal == 1 ? true : false
+                    };
+                    Lista.Add(Linha);
+                }
+                return Lista;
+            }
+        }
+
+        public List<CnaeStruct> Lista_Cnae_Empresa_VS(int nCodigo) {
+            List<CnaeStruct> Lista = new List<CnaeStruct>();
+            using (GTI_Context db = new GTI_Context(_connection)) {
+                var rows = (from m in db.Mobiliariovs join c in db.Cnae on m.Cnae equals c.cnae join a in db.Cnae_Aliquota on m.Cnae equals a.Cnae
+                            where m.Codigo == nCodigo && a.Ano == DateTime.Now.Year
+                            select new { m.Cnae, c.Descricao, m.Criterio, m.Qtde, a.Valor });
+                foreach (var reg in rows) {
+                    CnaeStruct Linha = new CnaeStruct {
+                        Descricao = reg.Descricao.ToUpper(),
+                        Criterio = reg.Criterio,
+                        Qtde = (int)reg.Qtde,
+                        Valor = (decimal)reg.Valor,
+                        CNAE = Convert.ToInt32(reg.Cnae).ToString("0000-0/00")
+                    };
+                    Lista.Add(Linha);
+                }
+                return Lista;
+            }
+        }
+
         public List<MobiliarioproprietarioStruct> Lista_Empresa_Proprietario(int Codigo) {
             using (GTI_Context db = new GTI_Context(_connection)) {
                 var Sql = (from m in db.mobiliarioproprietario
@@ -207,6 +272,15 @@ namespace GTI_WebApi.Repository {
                 return Sql;
             }
         }
+
+        public string Retorna_Descricao_Cnae(string cnae) {
+            string _cnae = Functions.RetornaNumero(cnae);
+            using (GTI_Context db = new GTI_Context(_connection)) {
+                var Sql = (from h in db.Cnae where h.cnae == _cnae select h.Descricao).FirstOrDefault();
+                return Sql;
+            }
+        }
+
 
     }
 }
