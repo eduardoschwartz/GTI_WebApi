@@ -195,12 +195,21 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImovelController.cs" />
+    <Compile Include="Models\atividade.cs" />
     <Compile Include="Models\cep.cs" />
     <Compile Include="Models\condominio.cs" />
+    <Compile Include="Models\horario_funcionamento.cs" />
+    <Compile Include="Models\mobiliario.cs" />
+    <Compile Include="Models\mobiliarioevento.cs" />
+    <Compile Include="Models\mobiliarioplaca.cs" />
+    <Compile Include="Models\mobiliarioproprietario.cs" />
     <Compile Include="Models\pais.cs" />
+    <Compile Include="Models\periodomei.cs" />
     <Compile Include="Repository\CidadaoRepository.cs" />
+    <Compile Include="Repository\EmpresaRepository.cs" />
     <Compile Include="Repository\EnderecoRepository.cs" />
     <Compile Include="Repository\ImovelRepository.cs" />
     <Compile Include="Functions.cs" />
@@ -302,6 +311,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Empresa\" />
     <Folder Include="Views\Imovel\" />
   </ItemGroup>
   <ItemGroup>

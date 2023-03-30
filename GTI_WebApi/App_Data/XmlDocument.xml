@@ -523,6 +523,11 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="M:GTI_WebApi.Controllers.EmpresaController.GetEmpresaId(System.Int32)">
+            <summary>
+            Retorna detalhes de uma empresa por inscrição municipal.
+            </summary>
+        </member>
         <member name="T:GTI_WebApi.Controllers.HomeController">
             <summary>
             

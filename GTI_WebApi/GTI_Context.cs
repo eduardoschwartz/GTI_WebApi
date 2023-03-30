@@ -19,6 +19,7 @@ namespace GTI_WebApi {
         }
 
         public DbSet<areas> Areas { get; set; }
+        public DbSet<Atividade> Atividade { get; set; }
         public DbSet<Bairro> Bairro { get; set; }
         public DbSet<Benfeitoria> Benfeitoria { get; set; }
         public DbSet<Cadimob> Cadimob { get; set; }
@@ -30,9 +31,15 @@ namespace GTI_WebApi {
         public DbSet<Condominio> Condominio { get; set; }
         public DbSet<Endentrega> Endentrega { get; set; }
         public DbSet<Facequadra> Facequadra { get; set; }
+        public DbSet<Horario_funcionamento> horario_Funcionamento { get; set; }
         public DbSet<Logradouro> Logradouro { get; set; }
+        public DbSet<Mobiliario> Mobiliario { get; set; }
+        public DbSet<Mobiliarioevento> Mobiliarioevento { get; set; }
+        public DbSet<mobiliarioplaca> Mobiliarioplaca { get; set; }
+        public DbSet<Mobiliarioproprietario> mobiliarioproprietario { get; set; }
         public DbSet<Pais> Pais { get; set; }
         public DbSet<Pedologia> Pedologia { get; set; }
+        public DbSet<Periodomei> Periodomei { get; set; }
         public DbSet<Proprietario> Proprietario { get; set; }
         public DbSet<Situacao> Situacao { get; set; }
         public DbSet<Testada> Testada { get; set; }
@@ -40,8 +47,6 @@ namespace GTI_WebApi {
         public DbSet<Topografia> Topografia { get; set; }
         public DbSet<Usoconstr> Usoconstr { get; set; }
         public DbSet<Usoterreno> Usoterreno { get; set; }
-        
-
 
     }
 }
