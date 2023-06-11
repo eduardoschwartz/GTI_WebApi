@@ -198,8 +198,11 @@
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImovelController.cs" />
+    <Compile Include="Models\anexo.cs" />
+    <Compile Include="Models\assunto.cs" />
     <Compile Include="Models\atividade.cs" />
     <Compile Include="Models\atividadeiss.cs" />
+    <Compile Include="Models\centrocusto.cs" />
     <Compile Include="Models\cep.cs" />
     <Compile Include="Models\cnae.cs" />
     <Compile Include="Models\Cnaesubclasse.cs" />
@@ -216,6 +219,7 @@
     <Compile Include="Models\pais.cs" />
     <Compile Include="Models\periodomei.cs" />
     <Compile Include="Models\tabelaiss.cs" />
+    <Compile Include="Models\usuario.cs" />
     <Compile Include="Repository\CidadaoRepository.cs" />
     <Compile Include="Repository\EmpresaRepository.cs" />
     <Compile Include="Repository\EnderecoRepository.cs" />
@@ -247,6 +251,7 @@
     <Compile Include="Models\usoconstr.cs" />
     <Compile Include="Models\usoterreno.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ProcessoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -411,9 +416,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57599</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44319/</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>https://localhost:44319/</IISAppRootUrl>
+          <IISUrl>http://localhost:44319/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
