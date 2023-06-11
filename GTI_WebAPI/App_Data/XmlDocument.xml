@@ -543,6 +543,11 @@
             Retorna detalhes de um imóvel por código.
             </summary>
         </member>
+        <member name="M:GTI_WebApi.Controllers.ProcessoController.GetProcessoNumero(System.Int32,System.Int32)">
+            <summary>
+            Retorna detalhes de um processo pelo ano e número.
+            </summary>
+        </member>
         <member name="T:GTI_WebApi.Models.modelCore">
             <summary>
             Classe que contêm os tipos utilizados no sistema

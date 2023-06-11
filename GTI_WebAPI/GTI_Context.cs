@@ -19,6 +19,7 @@ namespace GTI_WebApi {
         }
 
         public DbSet<Anexo> Anexo { get; set; }
+        public DbSet<Anexo_log> Anexo_log { get; set; }
         public DbSet<areas> Areas { get; set; }
         public DbSet<Assunto> Assunto { get; set; }
         public DbSet<Atividade> Atividade { get; set; }
@@ -36,6 +37,7 @@ namespace GTI_WebApi {
         public DbSet<Cnae_Aliquota> Cnae_Aliquota { get; set; }
         public DbSet<Cnaesubclasse> Cnaesubclass { get; set; }
         public DbSet<Condominio> Condominio { get; set; }
+        public DbSet<Documento> Documento { get; set; }
         public DbSet<Endentrega> Endentrega { get; set; }
         public DbSet<Facequadra> Facequadra { get; set; }
         public DbSet<Horario_funcionamento> horario_Funcionamento { get; set; }
@@ -50,6 +52,8 @@ namespace GTI_WebApi {
         public DbSet<Pais> Pais { get; set; }
         public DbSet<Pedologia> Pedologia { get; set; }
         public DbSet<Periodomei> Periodomei { get; set; }
+        public DbSet<Processodoc> Processodoc { get; set; }
+        public DbSet<Processoend> Processoend { get; set; }
         public DbSet<Processogti> Processogti { get; set; }
         public DbSet<Proprietario> Proprietario { get; set; }
         public DbSet<Situacao> Situacao { get; set; }

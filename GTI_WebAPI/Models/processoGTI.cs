@@ -70,6 +70,7 @@ namespace GTI_WebApi.Models {
         public DateTime? DataArquivado { get; set; }
         public DateTime? DataCancelado { get; set; }
         public List<ProcessoAnexoStruct> ListaAnexo { get; set; }
+        public List<Anexo_logStruct> ListaAnexoLog { get; set; }
         public string Anexo { get; set; }
         public bool Interno { get; set; }
         public bool Fisico { get; set; }

@@ -195,10 +195,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\CidadaoController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImovelController.cs" />
+    <Compile Include="Controllers\ProcessoController.cs" />
     <Compile Include="Models\anexo.cs" />
+    <Compile Include="Models\anexo_log.cs" />
     <Compile Include="Models\assunto.cs" />
     <Compile Include="Models\atividade.cs" />
     <Compile Include="Models\atividadeiss.cs" />
@@ -208,6 +211,7 @@
     <Compile Include="Models\Cnaesubclasse.cs" />
     <Compile Include="Models\cnae_aliquota.cs" />
     <Compile Include="Models\condominio.cs" />
+    <Compile Include="Models\documento.cs" />
     <Compile Include="Models\horario_funcionamento.cs" />
     <Compile Include="Models\mobiliario.cs" />
     <Compile Include="Models\mobiliarioatividadeiss.cs" />
@@ -218,6 +222,8 @@
     <Compile Include="Models\mobiliariovs.cs" />
     <Compile Include="Models\pais.cs" />
     <Compile Include="Models\periodomei.cs" />
+    <Compile Include="Models\processodoc.cs" />
+    <Compile Include="Models\processoend.cs" />
     <Compile Include="Models\tabelaiss.cs" />
     <Compile Include="Models\usuario.cs" />
     <Compile Include="Repository\CidadaoRepository.cs" />

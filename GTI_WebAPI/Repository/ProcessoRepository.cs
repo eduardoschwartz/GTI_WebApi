@@ -1,4 +1,5 @@
-﻿using GTI_WebApi.Data;
+﻿using Antlr.Runtime.Misc;
+using GTI_WebApi.Data;
 using GTI_WebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,6 @@ namespace GTI_WebApi.Repository {
         public ProcessoRepository(string connection) {
             _connection = connection;
         }
-
-
 
         public ProcessoStruct Dados_Processo(int nAno, int nNumero) {
             using (GTI_Context db = new GTI_Context(_connection)) {
@@ -53,8 +52,8 @@ namespace GTI_WebApi.Repository {
                     row.CentroCusto = 0;
                     row.CodigoCidadao = Convert.ToInt32(reg.CodigoCidadao);
                     if (row.CodigoCidadao > 0) {
-                        Cidadao_Data clsCidadao = new Cidadao_Data(_connection);
-                        row.NomeCidadao = clsCidadao.Retorna_Cidadao((int)row.CodigoCidadao).Nomecidadao;
+                        CidadaoRepository cidadaoRepository = new CidadaoRepository(_connection);
+                        row.NomeCidadao = cidadaoRepository.Retorna_Cidadao((int)row.CodigoCidadao).Nomecidadao;
                     } else
                         row.NomeCidadao = "";
                 } else {
@@ -107,6 +106,26 @@ namespace GTI_WebApi.Repository {
         public string Retorna_Assunto(int Codigo) {
             using (GTI_Context db = new GTI_Context(_connection)) {
                 string Sql = (from c in db.Assunto where c.Codigo == Codigo select c.Nome).FirstOrDefault();
+                return Sql;
+            }
+        }
+
+        private List<Anexo_logStruct> ListProcessoAnexoLog(int nAno, int nNumero) {
+            using (GTI_Context db = new GTI_Context(_connection)) {
+                var Sql = (from a in db.Anexo_log
+                           join u in db.Usuario on a.Userid equals u.Id into ac from u in ac.DefaultIfEmpty()
+                           where a.Ano == nAno && a.Numero == nNumero
+                           select new Anexo_logStruct {
+                               Ano = (short)nAno, Numero = (short)nNumero, Ano_anexo = a.Ano_anexo, Numero_anexo = a.Numero_anexo,
+                               Data = a.Data, Sid = a.Sid, Userid = a.Userid, Removido = a.Removido, Ocorrencia = a.Removido ? "Removido" : "Anexado", UserName = u.Nomecompleto
+                           });
+                return Sql.ToList();
+            }
+        }
+
+        public string Retorna_CentroCusto(int Codigo) {
+            using (GTI_Context db = new GTI_Context(_connection)) {
+                string Sql = (from c in db.Centrocusto where c.Codigo == Codigo select c.Descricao).FirstOrDefault();
                 return Sql;
             }
         }

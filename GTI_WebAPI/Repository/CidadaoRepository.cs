@@ -110,6 +110,12 @@ namespace GTI_WebApi.Repository {
             }
         }
 
+        public Cidadao Retorna_Cidadao(int Codigo) {
+            using (GTI_Context db = new GTI_Context(_connection)) {
+                var Sql = (from c in db.Cidadao where c.Codcidadao == Codigo select c).FirstOrDefault();
+                return Sql;
+            }
+        }
 
     }
 }
