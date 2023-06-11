@@ -1,6 +1,7 @@
 ﻿using GTI_WebApi.Models;
 using GTI_WebApi.Repository;
 using Newtonsoft.Json;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -13,11 +14,20 @@ namespace GTI_WebApi.Controllers {
         /// <summary>
         /// Retorna detalhes de uma empresa por inscrição municipal.
         /// </summary>
-        [Route("GetEmpresaId/{id:int}")]
-        public HttpResponseMessage GetEmpresaId(int id) {
+        [Route("RetornaEmpresaId/{id}")]
+        [HttpGet]
+        public HttpResponseMessage RetornaEmpresaId(int id) {
             string _connection = "GTIconnection";
             EmpresaRepository _empresa = new EmpresaRepository(_connection);
             EmpresaStruct empresa = _empresa.Dados_Empresa_Full(id);
+
+            if (empresa == null || empresa.Codigo==0) {
+                var response2 = Request.CreateResponse(HttpStatusCode.NotFound);
+                response2.Content = new StringContent("Empresa não cadastrada!");
+                return response2;
+            }
+
+
             var response = Request.CreateResponse(HttpStatusCode.OK);
 
             string dados = JsonConvert.SerializeObject(new {

@@ -15,11 +15,19 @@ namespace GTI_WebApi.Controllers {
         /// <summary>
         /// Retorna detalhes de um imóvel por código.
         /// </summary>
-        [Route("GetImovelId/{id:int}")]
-        public HttpResponseMessage GetImovelId(int id) {
+        [Route("RetornaImovelId/{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage RetornaImovelId(int id) {
             string _connection = "GTIconnection";
             ImovelRepository _imovelRepository = new ImovelRepository(_connection);
             Imovel_Full imovel = _imovelRepository.Dados_Imovel_Full(id);
+
+            if (imovel == null || imovel.Codigo == 0) {
+                var response2 = Request.CreateResponse(HttpStatusCode.NotFound);
+                response2.Content = new StringContent("Imóvel não cadastrado!");
+                return response2;
+            }
+
             List<AreaStruct> lista_area = imovel.Lista_Area;
             List<ProprietarioStruct> lista_proprietario = imovel.Lista_Proprietario;
             List<Testada> lista_testada = imovel.Lista_Testada;

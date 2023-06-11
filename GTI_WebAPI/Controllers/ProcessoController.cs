@@ -12,8 +12,9 @@ namespace GTI_WebApi.Controllers {
         /// <summary>
         /// Retorna detalhes de um processo pelo ano e número.
         /// </summary>
-        [Route("GetProcessoNumero/{ano}/{numero}")]
-        public HttpResponseMessage GetProcessoNumero(int ano, int numero) {
+        [Route("RetornaProcessoDados/{ano}/{numero}")]
+        [HttpGet]
+        public HttpResponseMessage RetornaProcessoDados(int ano, int numero) {
             string _connection = "GTIconnection";
             ProcessoRepository processoRepository = new ProcessoRepository(_connection);
 
@@ -40,17 +41,42 @@ namespace GTI_WebApi.Controllers {
                 _processo.DataCancelado,
                 _processo.DataEntrada,
                 _processo.DataReativacao,
-                _processo.DataSuspensao
+                _processo.DataSuspensao,
+                _processo.Dv,
+                _processo.Fisico,
+                _processo.Hora,
+                _processo.Inscricao,
+                _processo.Interno,
+                Lista_Anexos = _processo.ListaAnexo,
+                Lista_Anexos_Log= _processo.ListaAnexoLog,
+                Lista_Documentos = _processo.ListaProcessoDoc,
+                Lista_Enderecos = _processo.ListaProcessoEndereco,
+                _processo.LogradouroCodigo,
+                _processo.LogradouroNome,
+                _processo.LogradouroNumero,
+                _processo.Message,
+                _processo.NomeCidadao,
+                _processo.Numero,
+                _processo.ObsAnexo,
+                _processo.ObsArquiva,
+                _processo.ObsCancela,
+                _processo.Observacao,
+                _processo.ObsReativa,
+                _processo.ObsSuspensao,
+                _processo.Origem,
+                Numero_Completo = _processo.SNumero,
+                Tipo_Endereco=_processo.TipoEnd,
+                _processo.Valido
             });
 
             var response = Request.CreateResponse(HttpStatusCode.OK);
             response.Content = new StringContent(dados, Encoding.UTF8, "application/json");
             return response;
 
-
-
-
-
         }
+
+
+
+
     }
 }

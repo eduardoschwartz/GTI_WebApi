@@ -523,7 +523,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:GTI_WebApi.Controllers.EmpresaController.GetEmpresaId(System.Int32)">
+        <member name="M:GTI_WebApi.Controllers.EmpresaController.RetornaEmpresaId(System.Int32)">
             <summary>
             Retorna detalhes de uma empresa por inscrição municipal.
             </summary>
@@ -538,12 +538,12 @@
             Página inicial do swagger
             </summary>
         </member>
-        <member name="M:GTI_WebApi.Controllers.ImovelController.GetImovelId(System.Int32)">
+        <member name="M:GTI_WebApi.Controllers.ImovelController.RetornaImovelId(System.Int32)">
             <summary>
             Retorna detalhes de um imóvel por código.
             </summary>
         </member>
-        <member name="M:GTI_WebApi.Controllers.ProcessoController.GetProcessoNumero(System.Int32,System.Int32)">
+        <member name="M:GTI_WebApi.Controllers.ProcessoController.RetornaProcessoDados(System.Int32,System.Int32)">
             <summary>
             Retorna detalhes de um processo pelo ano e número.
             </summary>
